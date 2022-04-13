@@ -1,8 +1,8 @@
-public class LockFreeLisst {
+public class LockFreeList {
     private Node head;
     private Lock lock = new ReetrantLock();
     
-    public LockFreeLisst() {
+    public LockFreeList() {
         head = new Node(Integer.MIN_VALUE);
         head.next = new Node(Integer.MAX_VALUE);
     }
