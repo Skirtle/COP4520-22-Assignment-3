@@ -36,5 +36,6 @@ Late submissions will receive a 0 as per the syllabus.
 This GitHub management does two good things:  
 1.  Removes the temptation to look at other's work, because they will all be private until after the deadline.
 2.  Makes your life easier, as you don't have to send us invites
+
 Also, we cannot accept any late work as all the repos will be potentially public shortly after the deadline.
 Happy coding!
