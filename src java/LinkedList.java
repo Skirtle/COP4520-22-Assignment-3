@@ -60,12 +60,39 @@ public class LinkedList {
 		System.out.println();
 	}
 
-	public void randomize(int[] arr, int len) {
-		head = null;
-		for (int i = 0; i < len; i++) {
-			add(arr[i]);
+	public void addInOrder(int val) {
+		if (head == null) {
+			head = new Node(val);
+			size++;
+			return;
+		}
+
+		// Find biggest node less than new value
+		Node curr = head;
+		Node newNode = new Node(val);
+		if (curr.data > val) {
+			newNode.next = curr;
+			head = newNode;
+			size++;
+			return;
+		}
+
+		while (true) {
+			if (curr.next == null) {
+				curr.next = new Node(val);
+				size++;
+				return;
+			} else if (curr.next.data > val) {
+				newNode.next = curr.next;
+				curr.next = newNode;
+				size++;
+				return;
+			} else {
+				curr = curr.next;
+			}
 		}
 	}
+
 }
 
 class Node {

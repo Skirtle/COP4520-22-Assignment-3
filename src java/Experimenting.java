@@ -5,28 +5,8 @@ public class Experimenting {
     static final int PRESENTS = 50000; // 5000000
 
     public static void main(String[] args) {
-        long start, end, durr;
-        LinkedList ll = new LinkedList();
-        int[] randomArr = randomArray();
-        int[] randomArr2 = randomArray();
-
-        start = System.nanoTime();
-        for (int i = 0; i < PRESENTS; i++) {
-            ll.add(randomArr[i]);
-        }
-        end = System.nanoTime();
-        durr = (end - start) / 1000000;
-        System.out.println("Adding " + PRESENTS + " presents took " + durr + " ms");
-
-        start = System.nanoTime();
-        for (int i = 0; i < PRESENTS; i++) {
-            ll.remove(randomArr2[i]);
-        }
-        end = System.nanoTime();
-        durr = (end - start) / 1000000;
-        System.out.println("Removing " + PRESENTS + " presents took " + durr + " ms");
-        ll.print();
-
+        experimentRandom();
+        experimentInOrder();
     }
 
     static int[] randomArray() {
@@ -47,5 +27,59 @@ public class Experimenting {
         // System.out.println(Arrays.toString(arr));
 
         return arr;
+    }
+
+    public static void experimentRandom() {
+        long start, end, durr;
+        LinkedList ll = new LinkedList();
+        int[] randomArr = randomArray();
+        int[] randomArr2 = randomArray();
+
+        start = System.nanoTime();
+        for (int i = 0; i < PRESENTS; i++) {
+            ll.add(randomArr[i]);
+        }
+        end = System.nanoTime();
+        durr = (end - start) / 1000000;
+        System.out.println("Adding " + PRESENTS + " presents took " + durr + " ms");
+        System.out.println("Current size of linked list: " + ll.size);
+
+        start = System.nanoTime();
+        for (int i = 0; i < PRESENTS; i++) {
+            ll.remove(randomArr2[i]);
+        }
+        end = System.nanoTime();
+        durr = (end - start) / 1000000;
+        System.out.println("Removing " + PRESENTS + " presents took " + durr + " ms");
+        System.out.println("Current size of linked list: " + ll.size);
+        System.out.println();
+
+    }
+
+    public static void experimentInOrder() {
+        long start, end, durr;
+        LinkedList ll = new LinkedList();
+        int[] randomArr = randomArray();
+        int[] randomArr2 = randomArray();
+
+        // Add presents
+        start = System.nanoTime();
+        for (int i = 0; i < PRESENTS; i++) {
+            ll.addInOrder(randomArr[i]);
+        }
+        end = System.nanoTime();
+        durr = (end - start) / 1000000;
+        System.out.println("Adding " + PRESENTS + " presents took " + durr + " ms");
+        System.out.println("Current size of linked list: " + ll.size);
+
+        // Remove presents
+        start = System.nanoTime();
+        for (int i = 0; i < PRESENTS; i++) {
+            ll.remove(randomArr2[i]);
+        }
+        end = System.nanoTime();
+        durr = (end - start) / 1000000;
+        System.out.println("Removing " + PRESENTS + " presents took " + durr + " ms");
+        System.out.println("Current size of linked list: " + ll.size);
     }
 }
