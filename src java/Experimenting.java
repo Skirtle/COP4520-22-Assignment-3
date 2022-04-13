@@ -6,9 +6,30 @@ public class Experimenting {
 
     public static void main(String[] args) {
         LockFreeList lll = new LockFreeList();
-        for (int i = 0; i < 10; i++) {
+        int successfulAdds = 0;
+        int successfulRemoves = 0;
+
+        for (int i = 0; i < PRESENTS; i++) {
             lll.add(i);
         }
+
+        for (int i = 0; i < PRESENTS; i++) {
+            if (lll.contains(i)) {
+                successfulAdds++;
+            }
+        }
+
+        for (int i = 0; i < PRESENTS; i++) {
+            lll.remove(i);
+        }
+
+        for (int i = 0; i < PRESENTS; i++) {
+            if (!lll.contains(i)) {
+                successfulRemoves++;
+            }
+        }
+
+        System.out.println(successfulAdds + " " + successfulRemoves);
     }
 
     static int[] randomArray() {
