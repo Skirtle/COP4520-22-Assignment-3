@@ -1,4 +1,4 @@
-public class LockFreeList {
+public class LockFreeList implements Set {
     private Node head;
     private Lock lock = new ReetrantLock();
     

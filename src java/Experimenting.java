@@ -5,8 +5,10 @@ public class Experimenting {
     static final int PRESENTS = 50000; // 5000000
 
     public static void main(String[] args) {
-        singleThreadExperiment();
-        multiThreadExperiment();
+        LockFreeList lll = new LockFreeList();
+        for (int i = 0; i < 10; i++) {
+            lll.add(i);
+        }
     }
 
     static int[] randomArray() {
@@ -29,107 +31,4 @@ public class Experimenting {
         return arr;
     }
 
-    public static void singleExperimentRandomAdding() {
-        long start, end, durr;
-        LinkedList ll = new LinkedList();
-        int[] randomArr = randomArray();
-        int[] randomArr2 = randomArray();
-
-        start = System.nanoTime();
-        for (int i = 0; i < PRESENTS; i++) {
-            ll.add(randomArr[i]);
-        }
-        end = System.nanoTime();
-        durr = (end - start) / 1000000;
-        System.out.println("Adding " + PRESENTS + " presents took " + durr + " ms");
-        System.out.println("Current size of linked list: " + ll.size);
-
-        start = System.nanoTime();
-        for (int i = 0; i < PRESENTS; i++) {
-            ll.remove(randomArr2[i]);
-        }
-        end = System.nanoTime();
-        durr = (end - start) / 1000000;
-        System.out.println("Removing " + PRESENTS + " presents took " + durr + " ms");
-        System.out.println("Current size of linked list: " + ll.size);
-        System.out.println();
-
-    }
-
-    public static void singleExperimentInOrderAdding() {
-        long start, end, durr;
-        LinkedList ll = new LinkedList();
-        int[] randomArr = randomArray();
-        int[] randomArr2 = randomArray();
-
-        // Add presents
-        start = System.nanoTime();
-        for (int i = 0; i < PRESENTS; i++) {
-            ll.addInOrder(randomArr[i]);
-        }
-        end = System.nanoTime();
-        durr = (end - start) / 1000000;
-        System.out.println("Adding " + PRESENTS + " presents took " + durr + " ms");
-        System.out.println("Current size of linked list: " + ll.size);
-
-        // Remove presents
-        start = System.nanoTime();
-        for (int i = 0; i < PRESENTS; i++) {
-            ll.remove(randomArr2[i]);
-        }
-        end = System.nanoTime();
-        durr = (end - start) / 1000000;
-        System.out.println("Removing " + PRESENTS + " presents took " + durr + " ms");
-        System.out.println("Current size of linked list: " + ll.size);
-        System.out.println();
-    }
-
-    public static void singleExperimentRandomAddAndRemove() {
-        long start, end, durr;
-        LinkedList ll = new LinkedList();
-        int[] randomArr = randomArray();
-
-        start = System.nanoTime();
-        for (int i = 0; i < PRESENTS; i++) {
-            ll.add(randomArr[i]);
-            ll.remove(randomArr[i]);
-        }
-        end = System.nanoTime();
-        durr = (end - start) / 1000000;
-        System.out.println("Adding and removing " + PRESENTS + " presents took " + durr + " ms");
-        System.out.println("Current size of linked list: " + ll.size);
-        System.out.println();
-    }
-
-    public static void singleExperimentInOrderAddAndRemove() {
-        long start, end, durr;
-        LinkedList ll = new LinkedList();
-        int[] randomArr = randomArray();
-
-        start = System.nanoTime();
-        for (int i = 0; i < PRESENTS; i++) {
-            ll.addInOrder(randomArr[i]);
-            ll.remove(randomArr[i]);
-        }
-        end = System.nanoTime();
-        durr = (end - start) / 1000000;
-        System.out.println("Adding and removing " + PRESENTS + " presents took " + durr + " ms");
-        System.out.println("Current size of linked list: " + ll.size);
-        System.out.println();
-    }
-
-    public static void singleThreadExperiment() {
-        System.out.println("Random adding: ");
-        singleExperimentRandomAdding();
-        System.out.println("In order adding: ");
-        singleExperimentInOrderAdding();
-        System.out.println("Random adding and removing: ");
-        singleExperimentRandomAddAndRemove();
-        System.out.println("In order adding and removing: ");
-        singleExperimentInOrderAddAndRemove();
-    }
-
-    public static void multiThreadExperiment() {
-
-    }
 }
