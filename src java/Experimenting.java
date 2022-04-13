@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class Test {
+public class Experimenting {
     static final int THREADS = 4;
     static final int PRESENTS = 50000; // 5000000
 
