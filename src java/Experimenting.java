@@ -5,14 +5,8 @@ public class Experimenting {
     static final int PRESENTS = 50000; // 5000000
 
     public static void main(String[] args) {
-        System.out.println("Random adding: ");
-        experimentRandomAdding();
-        System.out.println("In order adding: ");
-        experimentInOrderAdding();
-        System.out.println("Random adding and removing: ");
-        experimentRandomAddAndRemove();
-        System.out.println("In order adding and removing: ");
-        experimentInOrderAddAndRemove();
+        singleThreadExperiment();
+        multiThreadExperiment();
     }
 
     static int[] randomArray() {
@@ -35,7 +29,7 @@ public class Experimenting {
         return arr;
     }
 
-    public static void experimentRandomAdding() {
+    public static void singleExperimentRandomAdding() {
         long start, end, durr;
         LinkedList ll = new LinkedList();
         int[] randomArr = randomArray();
@@ -62,7 +56,7 @@ public class Experimenting {
 
     }
 
-    public static void experimentInOrderAdding() {
+    public static void singleExperimentInOrderAdding() {
         long start, end, durr;
         LinkedList ll = new LinkedList();
         int[] randomArr = randomArray();
@@ -90,7 +84,7 @@ public class Experimenting {
         System.out.println();
     }
 
-    public static void experimentRandomAddAndRemove() {
+    public static void singleExperimentRandomAddAndRemove() {
         long start, end, durr;
         LinkedList ll = new LinkedList();
         int[] randomArr = randomArray();
@@ -107,7 +101,7 @@ public class Experimenting {
         System.out.println();
     }
 
-    public static void experimentInOrderAddAndRemove() {
+    public static void singleExperimentInOrderAddAndRemove() {
         long start, end, durr;
         LinkedList ll = new LinkedList();
         int[] randomArr = randomArray();
@@ -124,4 +118,18 @@ public class Experimenting {
         System.out.println();
     }
 
+    public static void singleThreadExperiment() {
+        System.out.println("Random adding: ");
+        singleExperimentRandomAdding();
+        System.out.println("In order adding: ");
+        singleExperimentInOrderAdding();
+        System.out.println("Random adding and removing: ");
+        singleExperimentRandomAddAndRemove();
+        System.out.println("In order adding and removing: ");
+        singleExperimentInOrderAddAndRemove();
+    }
+
+    public static void multiThreadExperiment() {
+
+    }
 }
