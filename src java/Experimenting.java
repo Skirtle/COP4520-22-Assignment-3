@@ -5,8 +5,8 @@ public class Experimenting {
     static final int PRESENTS = 50000; // 5000000
 
     public static void main(String[] args) {
-        experimentRandom();
-        experimentInOrder();
+        experimentRandomAdding();
+        experimentInOrderAdding();
     }
 
     static int[] randomArray() {
@@ -29,7 +29,7 @@ public class Experimenting {
         return arr;
     }
 
-    public static void experimentRandom() {
+    public static void experimentRandomAdding() {
         long start, end, durr;
         LinkedList ll = new LinkedList();
         int[] randomArr = randomArray();
@@ -56,7 +56,7 @@ public class Experimenting {
 
     }
 
-    public static void experimentInOrder() {
+    public static void experimentInOrderAdding() {
         long start, end, durr;
         LinkedList ll = new LinkedList();
         int[] randomArr = randomArray();
