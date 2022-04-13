@@ -16,3 +16,25 @@ Unfortunately, the servants realized at the end of the day that they had more pr
 Can we help the Minotaur and his servants improve their strategy for writing “Thank you” notes?
 
 Design and implement a concurrent linked-list that can help the Minotaur’s 4 servants with this task. In your test, simulate this concurrent “Thank you” card writing scenario by dedicating 1 thread per servant and assuming that the Minotaur received 500,000 presents from his guests.
+
+
+## Problem 2: Atmospheric Temperature Reading Module (50 points)
+
+You are tasked with the design of the module responsible for measuring the atmospheric temperature of the next generation Mars Rover, equipped with a multi-core CPU and 8 temperature sensors. The sensors are responsible for collecting temperature readings at regular intervals and storing them in shared memory space. The atmospheric temperature module has to compile a report at the end of every hour, comprising the top 5 highest temperatures recorded for that hour, the top 5 lowest temperatures recorded for that hour, and the 10-minute interval of time when the largest temperature difference was observed. The data storage and retrieval of the shared memory region must be carefully handled, as we do not want to delay a sensor and miss the interval of time when it is supposed to conduct temperature reading. 
+
+Design and implement a solution using 8 threads that will offer a solution for this task. Assume that the temperature readings are taken every 1 minute. In your solution, simulate the operation of the temperature reading sensor by generating a random number from -100F to 70F at every reading. In your report, discuss the efficiency, correctness, and progress guarantee of your program.
+
+### Grading policy:
+General program design and correctness: 50%
+Efficiency: 30%
+Documentation including statements and proof of correctness, efficiency, and experimental evaluation: 20%
+
+### Submission:
+You will submit a link to your GitHub page. Your repositories must be private until the next morning. You must still push your code before the deadline, because Github will record this time. No code pushes will be accepted after the deadline. However, we wont start grading until the next morning.
+If we cannot access your repositories, or if you provide an invalid link, you will receive a 0 - please double check your submission once it has been made.
+Late submissions will receive a 0 as per the syllabus.
+This GitHub management does two good things:  
+1.  Removes the temptation to look at other's work, because they will all be private until after the deadline.
+2.  Makes your life easier, as you don't have to send us invites
+Also, we cannot accept any late work as all the repos will be potentially public shortly after the deadline.
+Happy coding!
