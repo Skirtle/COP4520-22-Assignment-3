@@ -1,5 +1,4 @@
 import java.util.Random;
-import java.util.Arrays;
 
 public class Test {
     static final int THREADS = 4;
@@ -7,7 +6,7 @@ public class Test {
 
     public static void main(String[] args) {
         long start, end, durr;
-        SequentialLinkedList ll = new SequentialLinkedList();
+        LinkedList ll = new LinkedList();
         int[] randomArr = randomArray();
         int[] randomArr2 = randomArray();
 
