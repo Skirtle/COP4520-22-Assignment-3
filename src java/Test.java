@@ -3,16 +3,31 @@ import java.util.Arrays;
 
 public class Test {
     static final int THREADS = 4;
-    static final int PRESENTS = 10; // 5000000
+    static final int PRESENTS = 50000; // 5000000
 
     public static void main(String[] args) {
+        long start, end, durr;
         SequentialLinkedList ll = new SequentialLinkedList();
+        int[] randomArr = randomArray();
+        int[] randomArr2 = randomArray();
 
+        start = System.nanoTime();
         for (int i = 0; i < PRESENTS; i++) {
-            ll.add(i);
+            ll.add(randomArr[i]);
         }
+        end = System.nanoTime();
+        durr = (end - start) / 1000000;
+        System.out.println("Adding " + PRESENTS + " presents took " + durr + " ms");
 
+        start = System.nanoTime();
+        for (int i = 0; i < PRESENTS; i++) {
+            ll.remove(randomArr2[i]);
+        }
+        end = System.nanoTime();
+        durr = (end - start) / 1000000;
+        System.out.println("Removing " + PRESENTS + " presents took " + durr + " ms");
         ll.print();
+
     }
 
     static int[] randomArray() {

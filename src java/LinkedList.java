@@ -1,8 +1,8 @@
-public class SequentialLinkedList {
+public class LinkedList {
 	Node head = null;
 	int size = 0;
 
-	public SequentialLinkedList() {
+	public LinkedList() {
 
 	}
 
@@ -24,6 +24,32 @@ public class SequentialLinkedList {
 		size++;
 	}
 
+	public void remove(int val) {
+		if (head == null)
+			return;
+		if (head.data == val) {
+			head = head.next;
+			size--;
+			return;
+		}
+		Node curr = head;
+
+		while (curr.next != null) {
+			if (curr.next.data == val) {
+				if (curr.next.next != null) {
+					Node next = curr.next.next;
+					curr.next = next;
+				} else {
+					curr.next = null;
+				}
+				size--;
+				break;
+			}
+			curr = curr.next;
+		}
+
+	}
+
 	public void print() {
 		Node curr = head;
 
@@ -32,6 +58,13 @@ public class SequentialLinkedList {
 			curr = curr.next;
 		}
 		System.out.println();
+	}
+
+	public void randomize(int[] arr, int len) {
+		head = null;
+		for (int i = 0; i < len; i++) {
+			add(arr[i]);
+		}
 	}
 }
 
