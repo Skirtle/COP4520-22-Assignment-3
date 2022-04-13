@@ -2,7 +2,6 @@ import java.util.concurrent.locks.*;
 
 public class LockFreeList implements Set {
     private NewNode head;
-    private Lock lock = new ReentrantLock();
 
     public LockFreeList() {
         head = new NewNode(Integer.MIN_VALUE);
