@@ -7,3 +7,4 @@
 src java/.vs/ProjectSettings.json
 src java/.vs/slnx.sqlite
 *.class
+*.class
