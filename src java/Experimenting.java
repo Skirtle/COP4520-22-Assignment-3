@@ -5,8 +5,14 @@ public class Experimenting {
     static final int PRESENTS = 50000; // 5000000
 
     public static void main(String[] args) {
+        System.out.println("Random adding: ");
         experimentRandomAdding();
+        System.out.println("In order adding: ");
         experimentInOrderAdding();
+        System.out.println("Random adding and removing: ");
+        experimentRandomAddAndRemove();
+        System.out.println("In order adding and removing: ");
+        experimentInOrderAddAndRemove();
     }
 
     static int[] randomArray() {
@@ -81,5 +87,41 @@ public class Experimenting {
         durr = (end - start) / 1000000;
         System.out.println("Removing " + PRESENTS + " presents took " + durr + " ms");
         System.out.println("Current size of linked list: " + ll.size);
+        System.out.println();
     }
+
+    public static void experimentRandomAddAndRemove() {
+        long start, end, durr;
+        LinkedList ll = new LinkedList();
+        int[] randomArr = randomArray();
+
+        start = System.nanoTime();
+        for (int i = 0; i < PRESENTS; i++) {
+            ll.add(randomArr[i]);
+            ll.remove(randomArr[i]);
+        }
+        end = System.nanoTime();
+        durr = (end - start) / 1000000;
+        System.out.println("Adding and removing " + PRESENTS + " presents took " + durr + " ms");
+        System.out.println("Current size of linked list: " + ll.size);
+        System.out.println();
+    }
+
+    public static void experimentInOrderAddAndRemove() {
+        long start, end, durr;
+        LinkedList ll = new LinkedList();
+        int[] randomArr = randomArray();
+
+        start = System.nanoTime();
+        for (int i = 0; i < PRESENTS; i++) {
+            ll.addInOrder(randomArr[i]);
+            ll.remove(randomArr[i]);
+        }
+        end = System.nanoTime();
+        durr = (end - start) / 1000000;
+        System.out.println("Adding and removing " + PRESENTS + " presents took " + durr + " ms");
+        System.out.println("Current size of linked list: " + ll.size);
+        System.out.println();
+    }
+
 }
