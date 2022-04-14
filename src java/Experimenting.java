@@ -4,32 +4,8 @@ public class Experimenting {
     static final int THREADS = 4;
     static final int PRESENTS = 50000; // 5000000
 
-    public static void main(String[] args) {
-        LockFreeList lll = new LockFreeList();
-        int successfulAdds = 0;
-        int successfulRemoves = 0;
+    public static void main(String[] args) throws InterruptedException {
 
-        for (int i = 0; i < PRESENTS; i++) {
-            lll.add(i);
-        }
-
-        for (int i = 0; i < PRESENTS; i++) {
-            if (lll.contains(i)) {
-                successfulAdds++;
-            }
-        }
-
-        for (int i = 0; i < PRESENTS; i++) {
-            lll.remove(i);
-        }
-
-        for (int i = 0; i < PRESENTS; i++) {
-            if (!lll.contains(i)) {
-                successfulRemoves++;
-            }
-        }
-
-        System.out.println(successfulAdds + " " + successfulRemoves);
     }
 
     static int[] randomArray() {
@@ -51,5 +27,18 @@ public class Experimenting {
 
         return arr;
     }
+}
 
+class Servant implements Runnable {
+    int id, max;
+    static ConcLinkedList cll = new ConcLinkedList(); // All servants use the same list
+
+    Servant(int id, int max) {
+        this.id = id;
+        this.max = max;
+    }
+
+    public void run() {
+
+    }
 }

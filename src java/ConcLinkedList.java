@@ -1,9 +1,9 @@
 import java.util.concurrent.locks.*;
 
-public class LockFreeList implements Set {
+public class ConcLinkedList {
     private NewNode head;
 
-    public LockFreeList() {
+    public ConcLinkedList() {
         head = new NewNode(Integer.MIN_VALUE);
         head.next = new NewNode(Integer.MAX_VALUE);
     }
