@@ -2,6 +2,7 @@ import java.util.concurrent.locks.*;
 
 public class ConcLinkedList {
     private Node head;
+    public int size;
 
     public ConcLinkedList() {
         head = new Node(Integer.MIN_VALUE);
@@ -32,6 +33,7 @@ public class ConcLinkedList {
                             Node NewNode = new Node(item);
                             NewNode.next = curr;
                             pred.next = NewNode;
+                            size++;
                             return true;
                         }
                     }
@@ -63,6 +65,7 @@ public class ConcLinkedList {
                         } else {
                             curr.marked = true;
                             pred.next = curr.next;
+                            size--;
                             return true;
                         }
                     }
