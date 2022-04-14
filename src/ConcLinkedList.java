@@ -1,22 +1,22 @@
 import java.util.concurrent.locks.*;
 
 public class ConcLinkedList {
-    private NewNode head;
+    private Node head;
 
     public ConcLinkedList() {
-        head = new NewNode(Integer.MIN_VALUE);
-        head.next = new NewNode(Integer.MAX_VALUE);
+        head = new Node(Integer.MIN_VALUE);
+        head.next = new Node(Integer.MAX_VALUE);
     }
 
-    private boolean validate(NewNode pred, NewNode curr) {
+    private boolean validate(Node pred, Node curr) {
         return !pred.marked && !curr.marked && pred.next == curr;
     }
 
     public boolean add(int item) {
         int key = item;
         while (true) {
-            NewNode pred = head;
-            NewNode curr = head.next;
+            Node pred = head;
+            Node curr = head.next;
             while (curr.key < key) {
                 pred = curr;
                 curr = curr.next;
@@ -29,7 +29,7 @@ public class ConcLinkedList {
                         if (curr.key == key) {
                             return false;
                         } else {
-                            NewNode NewNode = new NewNode(item);
+                            Node NewNode = new Node(item);
                             NewNode.next = curr;
                             pred.next = NewNode;
                             return true;
@@ -47,8 +47,8 @@ public class ConcLinkedList {
     public boolean remove(int item) {
         int key = item;
         while (true) {
-            NewNode pred = head;
-            NewNode curr = head.next;
+            Node pred = head;
+            Node curr = head.next;
             while (curr.key < key) {
                 pred = curr;
                 curr = curr.next;
@@ -77,21 +77,21 @@ public class ConcLinkedList {
 
     public boolean contains(int item) {
         int key = item;
-        NewNode curr = head;
+        Node curr = head;
         while (curr.key < key)
             curr = curr.next;
         return curr.key == key && !curr.marked;
     }
 }
 
-class NewNode {
+class Node {
     int item;
     int key;
-    NewNode next;
+    Node next;
     boolean marked;
     Lock lock = new ReentrantLock();
 
-    NewNode(int myItem) {
+    Node(int myItem) {
         item = myItem;
         key = myItem;
         next = null;
