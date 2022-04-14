@@ -8,4 +8,4 @@ To run the file, go to "Problem 1" directory and, in the terminal, type and run 
 
 ## Problem 2: Atmospheric Temperature Reading Module (50 points)
 For effiency, each thread runs concurrently (of course) and has a designated section in the shared memory. The 1st thread gets the first 60 slots, the 2nd thread gets the next 60, and so on. We then copy the array to another array (as to not altar the previous data), sort it, remove duplicates, and then write out the 5 highest and 5 lowest temperatures. <br>
-To run the file, go to "Problem 2" directory and, in the terminal, type and run "javac Problem2.java" and then "java Problem2"
+To run the file, go to "Problem 2" directory and, in the terminal, type and run "javac Problem2.java" and then "java Problem2" <br>
