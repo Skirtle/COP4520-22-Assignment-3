@@ -41,4 +41,8 @@ class Servant implements Runnable {
     public void run() {
 
     }
+
+    void add() {
+        cll.add(id);
+    }
 }
